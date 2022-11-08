@@ -22,6 +22,7 @@
 		D0C2AD4D291A717800D5A96A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D0C2AD54291A71C700D5A96A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D0C2AD56291A71D600D5A96A /* validatestrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = validatestrings.swift; sourceTree = "<group>"; };
+		D0F16698291A7D120029FC28 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +39,7 @@
 		D0C2AD3A291A717400D5A96A = {
 			isa = PBXGroup;
 			children = (
+				D0F16698291A7D120029FC28 /* README.md */,
 				D0C2AD59291A724C00D5A96A /* Scripts */,
 				D0C2AD45291A717500D5A96A /* TestValidateStrings */,
 				D0C2AD44291A717500D5A96A /* Products */,
