@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  AccessibleUIFocusSkeleton
+
+  Created by Peter Easdown on 7/11/2022.
+  
+*/
+
+// these are all ok
+//
+"test1" = "should be ok";
+"test2"="is ok too";
+"test3"
+="is ok";
+"test4"
+=
+"is ok";
+"test
+5"="is ok";
+"test6" = "is ok
+across
+multiple lines";
+"test7" = "is
+ok";
+"test8"    =    "spaced out";
+"test9"="
+tricky but ok";
+"test10"=
+"just getting
+silly";
+"test10p5"
+="might beok"; "test10p6"
+=
+"but who knows";
+"test10p7" // a comment in the middle
+ = "ok with a comment";
+
+// these will all fail.
+//"test12"="is bad too"
+//"test13"
+//="is bad"
+//"test14"
+//=
+//"is bad"
+//"test
+//15"="is bad"
+//"test16" = "is bad
+//across
+//multiple lines"
+//"test17" = "is
+//bad"
+//"test18"    =    "spaced out"
+//"test19"="
+//tricky but bad"
+//"test20"=
+//"just getting
+//silly"
+//"test21" == "bad because its C";
+//"test22"    "bad because theres no equals";
+//"test23" = bad start of value";
+

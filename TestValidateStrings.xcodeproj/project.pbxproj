@@ -11,6 +11,7 @@
 		D0C2AD49291A717500D5A96A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2AD48291A717500D5A96A /* ContentView.swift */; };
 		D0C2AD4B291A717800D5A96A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C2AD4A291A717800D5A96A /* Assets.xcassets */; };
 		D0C2AD4E291A717800D5A96A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C2AD4D291A717800D5A96A /* Preview Assets.xcassets */; };
+		D0C2AD55291A71C700D5A96A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0C2AD54291A71C700D5A96A /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		D0C2AD48291A717500D5A96A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D0C2AD4A291A717800D5A96A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C2AD4D291A717800D5A96A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D0C2AD54291A71C700D5A96A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		D0C2AD56291A71D600D5A96A /* validatestrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = validatestrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 		D0C2AD3A291A717400D5A96A = {
 			isa = PBXGroup;
 			children = (
+				D0C2AD59291A724C00D5A96A /* Scripts */,
 				D0C2AD45291A717500D5A96A /* TestValidateStrings */,
 				D0C2AD44291A717500D5A96A /* Products */,
 			);
@@ -53,6 +57,7 @@
 			children = (
 				D0C2AD46291A717500D5A96A /* TestValidateStringsApp.swift */,
 				D0C2AD48291A717500D5A96A /* ContentView.swift */,
+				D0C2AD54291A71C700D5A96A /* Localizable.strings */,
 				D0C2AD4A291A717800D5A96A /* Assets.xcassets */,
 				D0C2AD4C291A717800D5A96A /* Preview Content */,
 			);
@@ -67,6 +72,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D0C2AD59291A724C00D5A96A /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				D0C2AD56291A71D600D5A96A /* validatestrings.swift */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +87,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0C2AD51291A717800D5A96A /* Build configuration list for PBXNativeTarget "TestValidateStrings" */;
 			buildPhases = (
+				D0C2AD58291A720100D5A96A /* Validate Strings File */,
 				D0C2AD3F291A717500D5A96A /* Sources */,
 				D0C2AD40291A717500D5A96A /* Frameworks */,
 				D0C2AD41291A717500D5A96A /* Resources */,
@@ -126,11 +140,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0C2AD4E291A717800D5A96A /* Preview Assets.xcassets in Resources */,
+				D0C2AD55291A71C700D5A96A /* Localizable.strings in Resources */,
 				D0C2AD4B291A717800D5A96A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D0C2AD58291A720100D5A96A /* Validate Strings File */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/TestValidateStrings/Localizable.strings",
+			);
+			name = "Validate Strings File";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun --sdk macosx swiftc -parse-as-library Scripts/validatestrings.swift \\\n  -o CompiledScript\n./CompiledScript $SCRIPT_INPUT_FILE_0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0C2AD3F291A717500D5A96A /* Sources */ = {
