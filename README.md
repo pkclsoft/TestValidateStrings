@@ -32,6 +32,5 @@ As you can see the run script is expecting to find the parser within a folder (o
 
 That's it!  Once you have this in place, you'll get errors reported whenever you have a typo or similar somewhere inside your Strings file, and you'll be told where it is.  Magic!
 ## TODO
-* Tidy up the code somewhat.
 * Add support for a list of files instead of just parsing one.
 * Find a way to get Xcode to display the link between an error and the localization key it actually belongs to.  The script already generates notes for this purpose however Xcode refuses to treat them in the same way it does for errors on objective-c code.
