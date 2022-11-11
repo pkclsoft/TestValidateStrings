@@ -26,6 +26,8 @@ class StringsParser {
         /// Waiting for the semicolon to finish off a key-value pair.
         case awaitingSemiColon
         
+        /// Ignore the next character.
+        case ignoreOneCharacter(nextState: ParseState)
         /// The opening '/' of a comment has been detected, so this indicates that the state machine is waiting for either '/' or '*' to start the comment
         /// properly.
         case awaitingCommentStart(nextState: ParseState)
@@ -171,6 +173,8 @@ class StringsParser {
                             // do we have the closing quote for the key?
                             if ch == "\"" {
                                 state = .awaitingEquals
+                            } else if ch == "\\" {
+                                state = .ignoreOneCharacter(nextState: state)
                             }
                         case .awaitingEquals:
                             // do we have the equals symbol.
@@ -211,6 +215,8 @@ class StringsParser {
                             // semicolon.
                             if ch == "\"" {
                                 state = .awaitingSemiColon
+                            } else if ch == "\\" {
+                                state = .ignoreOneCharacter(nextState: state)
                             }
                         case .awaitingSemiColon:
                             // have we found the semicolon?
@@ -259,6 +265,8 @@ class StringsParser {
                         case .awaitingNextLine:
                             // when waiting for the next line, just ignore all characters.
                             break
+                        case .ignoreOneCharacter(let next):
+                            state = next
                         }
                     }
                     
@@ -293,6 +301,8 @@ class StringsParser {
                 case .awaitingNextLine:
                     // not an error.
                     break
+                case .ignoreOneCharacter:
+                    outputError(path, "end of file reached when parsing escaped character", lineNumber, colNumber, lastLeftLine, lastLeftCol)
                 }
             }
             
